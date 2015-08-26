@@ -1,0 +1,25 @@
+{
+  "name": "textbelt",
+  "version": "0.0.1",
+  "description": "Send unlimited, free texts with Node.js",
+  "main": "text.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajay-gandhi/textbelt.git"
+  },
+  "keywords": [
+    "text",
+    "sms",
+    "message",
+    "unlimited"
+  ],
+  "author": "Ajay Gandhi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajay-gandhi/textbelt/issues"
+  },
+  "homepage": "https://github.com/ajay-gandhi/textbelt#readme"
+}
