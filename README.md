@@ -6,7 +6,7 @@ Taken mostly from [typpo's textbelt](https://github.com/typpo/textbelt), with a
 few improvements and lighter system, this module allows you to send texts
 through Node.js for free.
 
-## Usage
+## Installation
 
 You must have `sendmail` installed. Then just `npm install` this package:
 
@@ -14,15 +14,38 @@ You must have `sendmail` installed. Then just `npm install` this package:
 $ npm install textbelt
 ```
 
-In your code:
+Include it in your project:
 
 ```js
-var textbelt = require('textbelt');
-
-textbelt.debug(true); // Enable debugging output
-
-textbelt.sendText(phone_number, message, [region], cb);
+var text = require('textbelt');
 ```
+
+## API
+
+#### text.sendText(phone, message, opts, cb)
+
+Sends `message` as a text to `phone`. `cb` is an optional callback function,
+and `opts` is an optional object filled with options. If you want to include a
+callback function, you must include an `opts` parameter as well (it can be
+empty).
+
+Possible `opts`:
+
+```js
+var opts = {
+  fromAddr: 'some@email.com',  // "from" address in received text
+  fromName: 'joe smith',       // "from" name in received text
+  region:   'us',              // region the receiving number is in: 'us', 'canada', 'intl'
+  subject:  'something'        // subject of the message
+}
+```
+
+Do not include `+1` or other codes in the phone number. Instead use the 'region'
+parameter.
+
+#### text.debug(enable)
+
+If `enable` is `true`, enables debugging output, which is disabled by default.
 
 ## How It Works
 

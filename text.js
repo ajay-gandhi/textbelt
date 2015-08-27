@@ -4,7 +4,12 @@ var providers = require('./providers.json'),
     spawn     = require('child_process').spawn;
 
 var debugEnabled = false;
-var fromAddress = 'brad@me.com';
+var default_options = {
+  fromAddr: 'textbelt@me.com',
+  fromName: 'Textbelt',
+  subject:  '/',
+  region:   'us'
+}
 
 /**
  * General purpose logging function, gated by a configurable value
@@ -32,15 +37,17 @@ module.exports.debug = function (enable) {
  *
  * @param [string] phone   - The number to send a message to
  * @param [string] message - The message to send
- * @param [string] region  - The region the number is in
- * @param [func]   cb      - Callback function
- *
- * @returns
+ * @param [object] opts    - See readme
+ * @param [func]   cb      - See readme
  */
-module.exports.sendText = function (phone, message, region, cb) {
+module.exports.sendText = function (phone, message, opts, cb) {
   output('txting phone', phone, '\n + message:', message);
 
-  region = region || 'us';
+  // Setup options
+  var fromAddr = opts.fromAddr ? opts.fromAddr : default_options.fromAddr;
+  var fromName = opts.fromName ? opts.fromName : default_options.fromName;
+  var region   = opts.region   ? opts.region   : default_options.region;
+  var subject  = opts.subject  ? opts.subject  : default_options.subject;
 
   var providers_list = providers[region];
 
@@ -51,9 +58,10 @@ module.exports.sendText = function (phone, message, region, cb) {
   providers_list.forEach(function (provider) {
     // Create/get email and headers
     var email = provider.replace('%s', phone);
-    var headers = 'Subject: /\r\nFrom: Brad <' + fromAddress + '>\r\n\r\n';
+    var headers =  'Subject: ' + subject + '\r\n';
+        headers += 'From: ' + fromName + ' <' + fromAddr + '>\r\n\r\n';
 
-    var child = spawn('sendmail', ['-f', fromAddress, email]);
+    var child = spawn('sendmail', ['-f', fromAddr, email]);
 
     // Pipe processes to output
     child.stdout.on('data', output);
@@ -62,12 +70,12 @@ module.exports.sendText = function (phone, message, region, cb) {
     child.on('error', function (err) {
       output('sendmail failed', { email: email, err: err });
       done++;
-      if (done == all) cb(false);
+      if (done == all && cb) cb(false);
     });
 
     child.on('exit', function () {
       done++;
-      if (done == all) cb(false);
+      if (done == all && cb) cb(false);
     });
 
     // Write message then end input
