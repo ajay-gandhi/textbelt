@@ -7,7 +7,7 @@ var debugEnabled = false;
 var default_options = {
   fromAddr: 'textbelt@me.com',
   fromName: 'Textbelt',
-  subject:  '/',
+  subject:  '',
   region:   'us'
 }
 
