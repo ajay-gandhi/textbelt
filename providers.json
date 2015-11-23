@@ -12,7 +12,8 @@
     "%s@tmomail.net",
     "%s@txt.att.net",
     "%s@txt.windmobile.ca",
-    "%s@vtext.com"
+    "%s@vtext.com",
+    "%s"
   ],
 
   "canada": [
@@ -69,7 +70,8 @@
     "%s@utext.com",
     "%s@vmobile.ca",
     "%s@vmobl.com",
-    "%s@vtext.com"
+    "%s@vtext.com",
+    "%s"
   ],
 
   "intl": [
@@ -146,6 +148,7 @@
     "%s@text.simplefreedom.net",
     "%s@timnet.com",
     "%s@vodafone.net",
-    "%s@wyndtell.com"
+    "%s@wyndtell.com",
+    "%s"
   ]
 }
