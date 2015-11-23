@@ -1,5 +1,6 @@
 {
   "us": [
+    "%s",
     "%s@email.uscc.net",
     "%s@message.alltel.com",
     "%s@messaging.sprintpcs.com",
@@ -16,6 +17,7 @@
   ],
 
   "canada": [
+    "%s",
     "%s@blueskyfrog.com",
     "%s@bplmobile.com",
     "%s@cellularonewest.com",
@@ -73,6 +75,7 @@
   ],
 
   "intl": [
+    "%s",
     "%s@airtelchennai.com",
     "%s@airtelkol.com",
     "%s@airtelmail.com",
