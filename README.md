@@ -8,7 +8,8 @@ through Node.js for free.
 
 ## Installation
 
-You must have `sendmail` installed. Then just `npm install` this package:
+You must have `sendmail` (not the Node module, the native binary) installed.
+Then just `npm install` this package:
 
 ```bash
 $ npm install textbelt
