@@ -1,6 +1,6 @@
 {
   "name": "textbelt",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Send unlimited, free texts with Node.js",
   "main": "text.js",
   "scripts": {

@@ -12,13 +12,14 @@ You must have `sendmail` (not the Node module, the native binary) installed.
 Then just `npm install` this package:
 
 ```bash
-$ npm install textbelt
+npm install textbelt
 ```
 
 Include it in your project:
 
 ```js
 var text = require('textbelt');
+text.sendText("555-555-5555", "Textbelt says hello");
 ```
 
 ## API

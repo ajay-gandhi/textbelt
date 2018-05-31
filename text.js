@@ -44,6 +44,7 @@ module.exports.sendText = function (phone, message, opts, cb) {
   output('txting phone', phone, '\n + message:', message);
 
   // Setup options
+  opts = opts || {};
   var fromAddr = opts.fromAddr ? opts.fromAddr : default_options.fromAddr;
   var fromName = opts.fromName ? opts.fromName : default_options.fromName;
   var region   = opts.region   ? opts.region   : default_options.region;
